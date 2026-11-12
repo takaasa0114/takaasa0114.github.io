@@ -62,3 +62,36 @@ details p { margin: .5em 0 0; }
 .site-footer { border-top: 1px solid var(--line); text-align: center; padding: 24px 16px 40px; }
 .site-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
 .site-footer p { margin: .8em 0 0; }
+
+/* 先生向けのページ */
+button.button { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.table-scroll { overflow-x: auto; }
+.levels-table td { font-size: .85rem; }
+.levels-table td:first-child { font-size: .95rem; white-space: nowrap; }
+.levels-table td.num { white-space: nowrap; }
+.steps li { margin: .5em 0; }
+.sheet { border: 2px dashed var(--line); border-radius: 16px; padding: 20px; background: #fff; color: #1d1d1f; }
+.sheet-head { display: flex; align-items: center; gap: 14px; }
+.sheet-head img { border-radius: 16px; }
+.sheet-head p { margin: 0; }
+.sheet-title { font-size: 1.6rem; font-weight: 800; letter-spacing: .04em; }
+.sheet-body { display: flex; align-items: center; gap: 18px; margin: 16px 0; }
+.sheet-body .qr { flex: none; width: 160px; height: 160px; }
+.sheet-body p { margin: .3em 0; }
+.fill { width: 100%; border-collapse: collapse; }
+.fill th, .fill td { border: 1px solid #999; padding: 10px 12px; text-align: left; }
+.fill th { width: 6.5em; background: #f5f5f7; white-space: nowrap; }
+@media (max-width: 480px) { .sheet-body { flex-direction: column; text-align: center; } }
+.print-only { display: none; }
+@media print {
+  @page { size: A4; margin: 10mm; }
+  .print-only { display: block; }
+  .sheet + .sheet { margin-top: 12mm; border-top-style: dashed; }
+  .sheet { break-inside: avoid; height: 131mm; }
+  .site-footer, .hero, .no-print, main > section:not(.handout), .handout > h2 { display: none !important; }
+  body { background: #fff; }
+  main { padding: 0; max-width: none; }
+  .sheet { border: 2px solid #999; padding: 20px 24px; font-size: 12pt; }
+  .sheet-body { margin: 10px 0; }
+  .sheet-body .qr { width: 150px; height: 150px; }
+}
